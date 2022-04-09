@@ -1,5 +1,6 @@
 const discord = require('discord.js-selfbot-v11');
 const fs = require('fs');
+const express = require('express')
 
 const client = new discord.Client();
 const keepAlive = require('./server.js');
@@ -12,5 +13,14 @@ events.forEach(file => {
 	client.on(eventname, event.bind(null, client));
 });
 
-keepAlive();
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(3000, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 client.login(process.env.TOKEN);
