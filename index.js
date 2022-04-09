@@ -13,4 +13,4 @@ events.forEach(file => {
 });
 
 keepAlive();
-client.login(process.env.token);
+client.login(process.env.TOKEN);
